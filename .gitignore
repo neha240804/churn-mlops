@@ -1,0 +1,15 @@
+# Virtual Environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# MLflow
+mlruns/
+
+# Model artifacts
+data/artifacts/
+
+# Environment variables
+.env
