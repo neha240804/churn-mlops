@@ -1,0 +1,6 @@
+dataset:
+  raw_data_path: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+
+artifacts:
+  processed_data_path: data/processed/
+  model_path: data/artifacts/
