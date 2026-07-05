@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+pyyaml
+joblib
+mlflow
+fastapi
+uvicorn
+pytest

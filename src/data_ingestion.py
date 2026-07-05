@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-
+from src.logger import logger
 from src.config import load_config
 
 
@@ -82,7 +82,7 @@ def validate_dataset(df):
         print("\nMissing Values:")
         print(missing_values[missing_values > 0])
 
-    print("\nDataset Validation Successful.")
+    logger.info("Dataset validation completed successfully.")
 
 
 def get_data():

@@ -3,4 +3,9 @@ dataset:
 
 artifacts:
   processed_data_path: data/processed/
-  model_path: data/artifacts/
+  model_path: data/artifacts/model.pkl
+  preprocessor_path: data/artifacts/preprocessor.pkl
+
+training:
+  test_size: 0.2
+  random_state: 42
