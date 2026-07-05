@@ -20,15 +20,20 @@ def preprocess_data():
     # Drop unnecessary column
     df.drop("customerID", axis=1, inplace=True)
 
-    # Fix TotalCharges
+    # Convert TotalCharges to numeric
     df["TotalCharges"] = pd.to_numeric(
         df["TotalCharges"],
         errors="coerce"
     )
 
-    # Separate target
+    # Features and Target
     X = df.drop("Churn", axis=1)
-    y = df["Churn"]
+
+    # Encode target
+    y = df["Churn"].map({
+        "No": 0,
+        "Yes": 1
+    })
 
     numeric_features = [
         "SeniorCitizen",
@@ -73,7 +78,6 @@ def preprocess_data():
     )
 
     X_train = preprocessor.fit_transform(X_train)
-
     X_test = preprocessor.transform(X_test)
 
     joblib.dump(
@@ -82,6 +86,7 @@ def preprocess_data():
     )
 
     return X_train, X_test, y_train, y_test
+
 
 if __name__ == "__main__":
 

@@ -8,8 +8,10 @@ __pycache__/
 # MLflow
 mlruns/
 
-# Model artifacts
-data/artifacts/
+# Ignore artifacts except trained model files
+data/artifacts/*
+!data/artifacts/model.pkl
+!data/artifacts/preprocessor.pkl
 
 # Environment variables
 .env
