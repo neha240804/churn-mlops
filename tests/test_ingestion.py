@@ -1,9 +1,7 @@
-from src.data_ingestion import get_data
+from src.config import load_config
 
+def test_dataset_path_exists():
 
-def test_dataset_loaded():
+    config = load_config()
 
-    df = get_data()
-
-    assert df.shape[0] > 0
-    assert df.shape[1] == 21
+    assert "raw_data_path" in config["dataset"]

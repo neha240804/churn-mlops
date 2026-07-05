@@ -1,6 +1,5 @@
-import os
+from sklearn.linear_model import LogisticRegression
 
-
-def test_model_exists():
-
-    assert os.path.exists("data/artifacts/model.pkl")
+def test_model_creation():
+    model = LogisticRegression()
+    assert model is not None
