@@ -21,18 +21,17 @@ def predict_customer(customer_data):
     # Apply preprocessing
     transformed_data = preprocessor.transform(df)
 
-    # Predict
-    prediction = model.predict(transformed_data)[0]
+    prediction = int(model.predict(transformed_data)[0])
 
-    # Probability
-    probability = model.predict_proba(transformed_data)[0].max()
+    probability = float(model.predict_proba(transformed_data)[0].max())
+
 
     logger.info(
     f"Prediction: {prediction}, Probability: {probability}"
 )
 
     return {
-        "prediction": prediction,
-        "probability": round(float(probability), 4)
+        "prediction": "Yes" if prediction == 1 else "No",
+         "probability": round(probability, 4)
     }
 

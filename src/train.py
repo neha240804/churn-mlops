@@ -144,9 +144,10 @@ def train_models():
             print(f"Recall   : {recall:.4f}")
             print(f"F1 Score : {f1:.4f}")
             print(f"ROC-AUC  : {roc_auc:.4f}")
-
-            if f1 > best_f1:
-                best_f1 = f1
+            
+            best_roc_auc = 0
+            if roc_auc > best_roc_auc:
+                best_roc_auc = roc_auc
                 best_model = model
 
     joblib.dump(
