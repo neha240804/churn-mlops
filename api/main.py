@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from api.schemas import CustomerData
 from api.predictor import predict_customer
+import traceback
 
 app = FastAPI(
     title="Customer Churn Prediction API",
@@ -20,11 +21,13 @@ def health():
 
 @app.post("/predict")
 def predict(customer: CustomerData):
-
-    result = predict_customer(customer.model_dump())
-
-    return result
-
+    try:
+        result = predict_customer(customer.model_dump())
+        return result
+    except Exception as e:
+        print(traceback.format_exc())   # Shows full traceback in Render logs
+        raise HTTPException(status_code=500, detail=str(e))
+    
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
